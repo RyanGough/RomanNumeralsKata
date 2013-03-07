@@ -6,7 +6,11 @@ namespace RomanNumeralsKata
     {
         public string Generate(int value)
         {
-            return String.Empty;
+            if (value == 0)
+            {
+                return String.Empty;
+            }
+            return "I";
         }
     }
 }
