@@ -31,5 +31,13 @@ namespace RomanNumeralGenerator_Test
             string actualResult = generator.Generate(5);
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void Generate_Given_2_Returns_II()
+        {
+            string expectedResult = "II";
+            string actualResult = generator.Generate(2);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
