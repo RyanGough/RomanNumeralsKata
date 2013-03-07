@@ -9,7 +9,7 @@ namespace RomanNumeralsKata
     {
         public string Generate(int value)
         {
-            throw new NotImplementedException();
+            return String.Empty;
         }
     }
 }
