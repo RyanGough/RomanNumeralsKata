@@ -14,5 +14,14 @@ namespace RomanNumeralGenerator_Test
             string actualResult = generator.Generate(0);
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void Generate_Given_1_Returns_I()
+        {
+            RomanNumeralGenerator generator = new RomanNumeralGenerator();
+            string expectedResult = "I";
+            string actualResult = generator.Generate(1);
+            Assert.AreEqual(expectedResult, actualResult); 
+        }
     }
 }
