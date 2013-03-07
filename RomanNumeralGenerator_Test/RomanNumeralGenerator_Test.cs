@@ -1,14 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumeralsKata;
 
 namespace RomanNumeralGenerator_Test
 {
     [TestClass]
-    public class RomanNumeralGeneratorTestSuite
+    public class RomanNumeralGenerator_Test
     {
         [TestMethod]
         public void Generate_Given_0_Returns_EmptyString()
