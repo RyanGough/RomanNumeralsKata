@@ -10,7 +10,11 @@ namespace RomanNumeralsKata
             {
                 return String.Empty;
             }
-            return "I";
+            if (value == 1)
+            {
+                return "I";
+            }
+            return "V";
         }
     }
 }
