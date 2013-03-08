@@ -18,8 +18,17 @@ namespace RomanNumeralsKata
             {
                 return String.Empty;
             }
-            var biggestFactor = _ValueToNumeralMap.First(x => x.Key <= value);
-            return biggestFactor.Value + Generate(value - biggestFactor.Key);
+            
+            var biggestFactor = FindBiggestFactorRemaining(value);
+            
+            return biggestFactor.RomanNumeral + Generate(value - biggestFactor.Value);
+        }
+        
+        private RomanNumeralMapItem FindBiggestFactorRemaining(int value)
+        {
+            var dictionaryBiggestFactor = _ValueToNumeralMap.First(x => x.Key <= value);
+            RomanNumeralMapItem biggestFactor = new RomanNumeralMapItem(dictionaryBiggestFactor.Key, dictionaryBiggestFactor.Value);
+            return biggestFactor;
         }
     }
 }
