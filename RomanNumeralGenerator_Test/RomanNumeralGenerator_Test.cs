@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RomanNumeralsKata;
+using System.Collections.Generic;
 
 namespace RomanNumeralGenerator_Test
 {
@@ -8,44 +9,41 @@ namespace RomanNumeralGenerator_Test
     {
         private RomanNumeralGenerator generator = new RomanNumeralGenerator();
 
-        [TestMethod]
-        public void Generate_Given_0_Returns_EmptyString()
+        private IDictionary<int, string> _ValueToExpectedRomanNumeralMap = new Dictionary<int, string>()
         {
-            string expectedResult = string.Empty;
-            string actualResult = generator.Generate(0);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
+            {0, ""},
+            {1, "I"},
+            {2, "II"},
+            {3, "III"},
+            {4, "IV"},
+            {5, "V"},
+            {6, "VI"},
+            {7, "VII"},
+            {8, "VIII"},
+            {9, "IX"},
+            {10, "X"},
+            {20, "XX"},
+            {40, "XL"},
+            {50, "L"},
+            {90, "XC"},
+            {100, "C"},
+            {400, "CD"},
+            {500, "D"},
+            {900, "CM"},
+            {1000, "M"},
+            {3999, "MMMCMXCIX"}
+        };
 
         [TestMethod]
-        public void Generate_Given_1_Returns_I()
+        public void Generate_GivenValue_ReturnsCorrectRomanNumeral()
         {
-            string expectedResult = "I";
-            string actualResult = generator.Generate(1);
-            Assert.AreEqual(expectedResult, actualResult); 
-        }
-
-        [TestMethod]
-        public void Generate_Given_5_Returns_V()
-        {
-            string expectedResult = "V";
-            string actualResult = generator.Generate(5);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        public void Generate_Given_3_Returns_III()
-        {
-            string expectedResult = "III";
-            string actualResult = generator.Generate(3);
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        public void Generate_Given_4_Returns_IV()
-        {
-            string expectedResult = "IV";
-            string actualResult = generator.Generate(4);
-            Assert.AreEqual(expectedResult, actualResult);
+            foreach (var testData in _ValueToExpectedRomanNumeralMap)
+            {
+                int input = testData.Key;
+                string expectedResult = testData.Value;
+                string actualResult = generator.Generate(input);
+                Assert.AreEqual(expectedResult, actualResult);
+            }
         }
     }
 }
