@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RomanNumeralsKata
 {
@@ -7,9 +8,8 @@ namespace RomanNumeralsKata
     {
         private IDictionary<int, string> _ValueToNumeralMap = new Dictionary<int, string>()
         {
-            { 1, "I"},
-            { 2, "II"},
             { 5, "V"},
+            { 1, "I"},
         };
 
         public string Generate(int value)
@@ -18,7 +18,8 @@ namespace RomanNumeralsKata
             {
                 return String.Empty;
             }
-            return _ValueToNumeralMap[value];
+            var biggestFactor = _ValueToNumeralMap.First(x => x.Key <= value);
+            return biggestFactor.Value + Generate(value - biggestFactor.Key);
         }
     }
 }
